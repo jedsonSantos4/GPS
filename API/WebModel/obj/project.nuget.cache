@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FUI3sMk1g09PpAYFuogCJm6HlyNaTIr6GCjCedI0nJJ2e0TcDXlFR2estf9unW5rFRu3SBgLDRPQWnGViVaLvg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ADM\\Documents\\Rubens\\gps\\API\\WebModel\\Web.Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADM\\.nuget\\packages\\mongodb.bson\\2.12.3\\mongodb.bson.2.12.3.nupkg.sha512",
+    "C:\\Users\\ADM\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

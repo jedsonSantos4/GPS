@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+@*<script src="~/Scripts/ElaborarEscala/jvsElaborarEscala.js?ver<@DateTime.Now.Ticks.ToString()>"></script>*@
+@*<script src="~/js/jvsLogin.js"></script>*@ 
+
+<style>
+    .rowteste {
+        box-sizing: border-box;
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .columnteste {
+        float: left;
+        width: 48.33%;
+        padding: 10px;
+        height: 300px;
+        Should be removed. Only for demonstration
+    }
+
+    ul {
+        list-style-type: none;
+    }
+    .register{
+        display:none
+    }
+    .btn-register {
+        float:right
+    }
+    #divBusca {
+        background-color: #E0EEEE;
+        border: solid 2px #5F9EA0;
+        border-radius: 10px;
+        width: 300px;
+        height: 32px;
+    }
+
+    .conFind {
+        overflow: auto;
+        height: 226px;
+    }
+
+    #txtBusca {
+        float: left;
+        background-color: transparent;
+        padding-left: 5px;
+        font-size: 18px;
+        border: none;
+        height: 32px;
+        width: 191px;
+    }
+
+    #btnBusca {
+        border: none;
+        float: left;
+        height: 29px;
+        border-radius: 0 7px 7px 0;
+        width: 105px;
+        font-weight: bold;
+        background: #5F9EA0;
+    }
+    .consulta{
+        display:none
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #152446;
+        border-radius: 10px;
+    }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b30000;
+        }
+</style>
+
+<div class="login">
+    <div class="heading sign">
+        <h2>Sign in</h2>
+        <div >
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input id="user_" type="email" class="form-control" autocomplete="off" placeholder="Email ">
+            </div>
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input id="user_pswd" type="password" class="form-control" placeholder="Password">
+            </div>
+
+            <button onclick="LoginGps.logar()" type="submit" class="float btn btn-success">Login</button>
+            <button onclick="LoginGps.register()" type="submit" class="float btn btn-primary btn-register">Register</button>
+        </div>
+    </div>
+
+    <div class="heading register" >
+        <h2>Register</h2>
+        <form action="#">
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input id="register_nome" type="text" autocomplete="off" class="form-control" placeholder="Nome ">
+            </div>
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input id="register_" type="email" autocomplete="off" class="form-control" placeholder="Email ">
+            </div>
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input id="register_psw" type="password" class="form-control" placeholder="Password">
+            </div>
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input id="register_pswv" type="password" class="form-control" placeholder="Password check">
+            </div>
+            <button onclick="LoginGps.save()" type="submit" class="float btn btn-success">Save</button>
+        </form>
+    </div>
+</div>
+
+<div class="container consulta">
+    <div id="divBusca">
+        @*<img src="search3.png" alt="Buscar..." />*@
+        <input type="text" id="txtBusca" placeholder="CNPJ..." />
+        <button onclick="LoginGps.get_cnpj()" class="btn" id="btnBusca">Buscar</button>
+    </div>
+    <div>
+        <div class="list-group listcnpj agrup"></div>
+        <div class="list-group pesquisaAtual agrup">
+        </div>
+
+    </div>
+
+    <div class="rowteste">
+        <div class="columnteste" style=" background-color:#aaa;">
+            <h2>CNPJ pesquisado</h2>
+            <ul id="FindAtual">
+            </ul>
+        </div>
+        <div class="columnteste" style="width: 10px; background-color: transparent;">
+
+        </div>
+        <div class="columnteste" style="background-color:#ccc;">
+            <h2>CNPJ Salvos</h2>
+            <div id="FindsAall" class="conFind"></div>
+        </div>
+        <button onclick="LoginGps.savecnpj()" type="submit" class="float btn btn-success">Save</button>
+    </div>
+</div>
+
+<script>
+    $("#txtBusca").mask("99.999.999/9999-99");
+
+    var options = {
+        onKeyPress: function (cpf, ev, el, op) {
+            var masks = ['000.000.000-000', '00.000.000/0000-00'];
+            $('#txtBusca').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+        }
+    }
+
+    $('#txtBusca').length > 11 ? $('.cpfOuCnpj').mask('00.000.000/0000-00', options) : $('.cpfOuCnpj').mask('000.000.000-00#', options);
+</script>
