@@ -74,7 +74,8 @@ namespace Presentation.Controllers
             // Verifica se o usuário existe
             if (result.Value == null)
                 return NotFound(result.Message);
-
+            if (result.Status == false)
+                return NotFound(result.Message);
             // Gera o Token
             var token = TokenConfig.GenerateToken(result.Value);
 

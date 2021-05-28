@@ -41,7 +41,7 @@ var LoginGps = function (document, window, $) {
 
                             Swal.fire({
                                 icon: 'warning',
-                                title: 'Erro ao logar',
+                                title: 'Erro ao logar: Usuário ou senha Inválidos',
                                 timer: 2000,
                                 showConfirmButton: false,
 
@@ -66,7 +66,7 @@ var LoginGps = function (document, window, $) {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'CPF/Senha preenchencido errado',
+                        title: 'Usuário/Senha preenchencido errado',
                         timer: 2000,
                         showConfirmButton: false,
                     });
